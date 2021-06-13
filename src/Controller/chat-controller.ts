@@ -110,7 +110,7 @@ const addMsgToChat = async (req: any, res: any) => {
       { $push: { messages: msgResponse._id } },
       { new: true, upsert: true }
     );
-    io.emit("message-sent", msg);
+    io.emit("message-sent", user1.username);
     res.status(201).send(doc);
   } catch (err) {
     console.log(err);

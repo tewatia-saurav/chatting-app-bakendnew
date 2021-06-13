@@ -178,7 +178,7 @@ var addMsgToChat = function (req, res) { return __awaiter(void 0, void 0, void 0
                 return [4 /*yield*/, chatModel_1.ChatModel.findOneAndUpdate({ users: { $all: [user1.id, user2._id] } }, { $push: { messages: msgResponse._id } }, { new: true, upsert: true })];
             case 4:
                 doc = _b.sent();
-                sockets_1.io.emit("message-sent", msg);
+                sockets_1.io.emit("message-sent", user1.username);
                 res.status(201).send(doc);
                 return [3 /*break*/, 6];
             case 5:
